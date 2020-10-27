@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+$base-font: 'Roboto';
+$main-color: rgb(14, 131, 185);
+$invert-color: white;
+
+body {
+  font-family: $base-font, verdana, serif;
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+p, h2, ul {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+
+h1, h2 {
+  text-decoration: underline $main-color;
+}
+
+a:active, /* активная/посещенная ссылка */
+a:hover,  /* при наведении */
+a {
+  text-decoration: none;
+  color: $main-color;
+}
+
+header,
+footer,
+main {
+  max-width: 1020px;
+  padding: 2vh 1vw;
+  margin: 0 auto;
+  background-color: $invert-color;
+}
+
+header,
+footer {
+  background-color: $main-color;
+
+  h1, h2, h3, h4, p {
+    color: $invert-color;
+  }
+
+  h1, h2 {
+    text-decoration: underline $invert-color;
+  }
+}
+
+main {
+  display: grid;
+  grid-template: auto auto / 2fr 3fr;
+
+  &>aside {
+    margin-right: 2rem;
+    grid-area: 1 / 1 / span 2 / span 1;
+
+    section.avatar {
+      margin-bottom: 2vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      img.avatar__img {
+        width: 50%;
+        box-shadow: 0 0 5px $main-color;
+        border-width: 2px;
+        border-style: solid;
+        border-color: $main-color;
+        transition: 0.4s;
+
+        border-radius: 50%;
+        object-fit: cover;
+
+        &:after {
+          content: '';
+          padding-top: 100%;
+        }
+
+        &:hover {
+          width: 70%;
+        }
+      }
+    }
+
+    section.contacts {
+      & > div {
+        display: flex;
+        align-items: center;
+        color: $main-color;
+
+        p {
+          color: black;
+          margin-left: 2vh;
+        }
+      }
+    }
+
+    section.flex-list {
+      &.skills {
+        ul > li {
+          padding: 0.5vw;
+          border-radius: 5px;
+          color: $invert-color;
+          background-color: $main-color;
+          box-shadow: 0 0 5px $main-color;
+        }
+      }
+
+      ul {
+        display: flex;
+        flex-flow: row wrap;
+        list-style-type: none;
+
+        li {
+          margin: 0.5vw;
+        }
+      }
+    }
+
+    section.flex-list {
+      ul {
+        display: flex;
+        flex-flow: row wrap;
+        list-style-type: none;
+
+        li {
+          margin: 0.5vw;
+          padding: 0.5vw;
+        }
+      }
+    }
+  }
+
+  h1, h2, h3, h4 {
+    color: $main-color;
+  }
+}
+
+section.my-projects,
+section.certificates {
+  article {
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px gray;
+    display: grid;
+    grid-template: auto auto / 1fr auto;
+    align-items: center;
+
+    p {
+      line-height: 2em;
+    }
+  }
+
+  a {
+    font-size: 1.5rem;
+    grid-area: 1 / 2 / span 1 / span 1;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    display: block;
+  }
+}
