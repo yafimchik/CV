@@ -25,6 +25,16 @@ module.exports = {
   resolve: {
     extensions: ['.wasm', '.mjs', '.js', '.json']
   },
+  module: {
+    rules: [{
+        test: /\.scss$/,
+        use: [
+            "style-loader", // creates style nodes from JS strings
+            "css-loader", // translates CSS into CommonJS
+            "sass-loader" // compiles Sass to CSS
+        ]
+    }]
+  },
   plugins: [
     // Generate a base html file and injects all generated css and js files
     new HtmlWebpackPlugin({
@@ -40,6 +50,6 @@ module.exports = {
     new JsConfigWebpackPlugin(),
     // SCSS Configuration for .css .module.css and .scss .module.scss files
     // see https://github.com/namics/webpack-config-plugins/tree/master/packages/scss-config-webpack-plugin/config
-    new ScssConfigWebpackPlugin(),
+    // new ScssConfigWebpackPlugin(),
   ],
 };
