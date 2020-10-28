@@ -85,16 +85,16 @@ main {
           margin-right: 3px;
           color: $main-color;
         }
-      }
 
-      & > div p {
-        color: black;
-        margin-left: 2vh;
-      }
+        p {
+          color: black;
+          margin-left: 2vh;
+        }
 
-      & > div a {
-        color: $main-color;
-        margin-left: 2vh;
+        a {
+          color: $main-color;
+          margin-left: 2vh;
+        }
       }
     }
 
